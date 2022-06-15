@@ -7,14 +7,21 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const justforbence = "986746975334596608";
+const justforbenceid = "986746975334596608";
 const benceid = "687324608239632405";
+let currentChannelid= "";
 
 client.on('messageCreate', msg => {
 	//console.log(msg.author.id+" "+msg.author.username);
 
-	if (msg.channel.id === justforbence && msg.content.indexOf("are you working?") > -1) {
-		client.channels.cache.get(justforbence).send("I'm working <@687324608239632405>");
+	if (msg.channel.id === justforbenceid && msg.content.indexOf("are you working?") > -1) {
+		client.channels.cache.get(justforbenceid).send("I'm working <@687324608239632405>");
+	}
+
+	if (msg.content.indexOf("what's my name?") > -1) {
+		let currentChannelid = msg.channel.id;
+		client.channels.cache.get(currentChannelid).send("You are <@"+msg.author.id+">");
+		//msg.reply("You are "+msg.author.username);
 	}
 
 	if (msg.content === "shit") 
