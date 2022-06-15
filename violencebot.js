@@ -14,12 +14,12 @@ client.on('messageCreate', msg => {
 	//console.log(msg.author.id+" "+msg.author.username);
 
 	if (msg.channel.id === justforbence && msg.content.indexOf("are you working?") > -1) {
-		client.channels.cache.get(justforbence).send("I'm working <@${687324608239632405}>");
+		client.channels.cache.get(justforbence).send("I'm working <@687324608239632405>");
 	}
 
-	if (msg.content === "shit") 
-	
-  {
+	if (msg.content === "apple") 
+
+	{
 		msg.delete();
 	}
 
