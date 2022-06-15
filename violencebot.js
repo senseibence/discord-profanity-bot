@@ -17,7 +17,7 @@ client.on('messageCreate', msg => {
 		client.channels.cache.get(justforbence).send("I'm working <@687324608239632405>");
 	}
 
-	if (msg.content === "apple") 
+	if (msg.content === "shit") 
 
 	{
 		msg.delete();
