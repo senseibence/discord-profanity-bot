@@ -1,30 +1,85 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+const { clientId, guildId, token } = require("./strings.json");
 const { Client, Intents } = require('discord.js');
+const XMLHttpRequest = require('xhr2');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-const token = require("./token.js");
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const justforbenceid = "986746975334596608";
-const benceid = "687324608239632405";
-let currentChannelid= "";
+/*const justforbenceID = "986746975334596608";
+const benceID = "687324608239632405";
+let channelID = "";
+let username = "";
+let userID = "";
+let messageContent = "";
+const link = "https://neutrinoapi.net/bad-word-filter";*/
 
-client.on('messageCreate', msg => {
-	//console.log(msg.author.id+" "+msg.author.username);
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
 
-	if (msg.channel.id === justforbenceid && msg.content.indexOf("are you working?") > -1) {
-		client.channels.cache.get(justforbenceid).send("I'm working <@687324608239632405>");
+	const { commandName } = interaction;
+	const userId = interaction.user.id;
+
+	if (commandName === 'filter') {
+		//we can change filter aggression levels with this command
+	} else if (commandName === 'gum') { //inside joke at school
+
+		if (userId != "400097639917420548" && userId != "508801878872686592") {
+			await interaction.reply('You are eligible!');
+		}
+
+		else {
+			await interaction.reply('You take too much, ineligible');
+		}
+
+	} else if (commandName === 'name') {
+		await interaction.reply(`Hi ${interaction.user.username}`);
 	}
+});
 
-	if (msg.content.indexOf("what's my name?") > -1) {
-		let currentChannelid = msg.channel.id;
-		client.channels.cache.get(currentChannelid).send("You are <@"+msg.author.id+">");
+
+/*
+client.on('messageCreate', msg => {
+	channelID = msg.channel.id;
+	username = msg.author.username;
+	userID = msg.author.id;
+	msgContent = msg.content;
+
+	/*if (msgContent.indexOf("give me gum") > -1){
+		client.channels.cache.get(channelID).send("you don't have permission for gum");
+	}*/
+	/*let xmlHttpReq = new XMLHttpRequest();
+	xmlHttpReq.open("POST", link, true); // true for asynchronous 
+	xmlHttpReq.onreadystatechange = function () {
+		console.log(xmlHttpReq.readyState + ":" + xmlHttpReq.status);
+	  if (xmlHttpReq.readyState 
+	  = 4 && xmlHttpReq.status == 200)
+	  {
+		console.log("foo");
+		console.log(xmlHttpReq.responseText);
+	  }
+		
+	}
+	
+	xmlHttpReq.send(msgContent);
+
+	
+	console.log(username+" "+userID);
+
+	if (msgContent.indexOf("what's my name?") > -1) {
+		client.channels.cache.get(channelID).send("You are <@"+userID+">");
 		//msg.reply("You are "+msg.author.username);
 	}
 
-	if (msg.content === "shit") 
+	if (channelID === justforbenceID && msgContent.indexOf("are you working") > -1) {
+		client.channels.cache.get(justforbenceID).send("I'm working <@"+benceID+">");
+	}
+
+	if (msgContent.indexOf("shit") > -1) 
 
 	{
 		msg.delete();
@@ -32,40 +87,10 @@ client.on('messageCreate', msg => {
 
 })
 
-/*const commands = [
-	{
-		name: 'ping',
-		description: 'Replies with Pong!',
-	},
-];
-
-const rest = new REST({ version: '10' }).setToken('token');
-
-(async () => {
-	try {
-		console.log('Started refreshing application (/) commands.');
-
-		await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), { body: commands });
-
-		console.log('Successfully reloaded application (/) commands.');
-	} catch (error) {
-		console.error(error);
-	}
-})();
-
-const { Client, GatewayIntentBits } = require('discord.js');
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-
-
-client.on('interactionCreate', async (interaction) => {
-	if (!interaction.isChatInputCommand()) return;
-
-	if (interaction.commandName === 'ping') {
-		await interaction.reply('Pong!');
-	}
-});
-
 */
+
+
+
+
 
 client.login(token);
