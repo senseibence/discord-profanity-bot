@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require("./strings.json");
+const { clientId, guildId, token, apiKey } = require("./strings.json");
 const { Client, Intents } = require('discord.js');
 const XMLHttpRequest = require('xhr2');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -12,11 +12,10 @@ client.on('ready', () => {
 
 //const justforbenceID = "986746975334596608";
 const benceId = "687324608239632405";
-let channelId = "";
+/*let channelId = "";
 let username = "";
 let userId = "";
-let messageContent = "";
-//const link = "https://neutrinoapi.net/bad-word-filter";
+let messageContent = "";*/
 
 //slash commands
 client.on('interactionCreate', async interaction => {
@@ -40,42 +39,48 @@ client.on('interactionCreate', async interaction => {
 		}
 
 	} else if (commandName === 'name') {
-		await interaction.reply(`Hi ${interaction.user.username}`);
+		await interaction.reply(`Hi ${interaction.user.username}!`);
 	}
 });
 
 //filtering profanity, base level
 client.on('messageCreate', msg => {
-	channelId = msg.channel.id;
+	/*channelId = msg.channel.id;
 	username = msg.author.username;
 	userId = msg.author.id;
-	msgContent = msg.content;
+	msgContent = msg.content;*/
 	let json; let obj; let res;
 
-	const data = "content="+msg.content+"&censor-character=*";
+	if (msg.content.includes("cracker")) {
+		msg.delete();
+	}
 
 	const xhr = new XMLHttpRequest();
 	xhr.withCredentials = true;
 
 	xhr.addEventListener("readystatechange", function () {
 		if (this.readyState === this.DONE) {
+			
 			json = this.responseText;
+			//console.log(json);
 			obj = JSON.parse(json);
+			//console.log(obj);
 			res = obj["is-bad"];
+			//console.log(res);
 			if (res) msg.delete();
 			
 		}
 	});
 
-	xhr.open("POST", "https://neutrinoapi-bad-word-filter.p.rapidapi.com/bad-word-filter");
-	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-	xhr.setRequestHeader("X-RapidAPI-Key", "906d3acad2msh27482b09890cd39p116dd3jsn85e7a3a7e795");
-	xhr.setRequestHeader("X-RapidAPI-Host", "neutrinoapi-bad-word-filter.p.rapidapi.com");
+	var apiParams = "content="+msg.content+"&user-id=senseibence&api-key="+apiKey;
 
-	xhr.send(data);
+	xhr.open("POST", "https://neutrinoapi.net/bad-word-filter", true);
+	xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+	xhr.send(apiParams);
 	
-	if (userId === benceId && msgContent.includes("are you working")) {
-		client.channels.cache.get(justforbenceID).send("I'm working <@"+benceID+">");
+	if (msg.author.id === benceId && msg.content.includes("test123")) {
+		client.channels.cache.get(msg.channel.id).send("I'm working <@"+benceId+">");
 	}
 
 })
