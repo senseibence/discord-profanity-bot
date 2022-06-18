@@ -10,7 +10,7 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-//const justforbenceID = "986746975334596608";
+//const justforbenceId = "986746975334596608";
 const benceId = "687324608239632405";
 /*let channelId = "";
 let username = "";
