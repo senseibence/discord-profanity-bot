@@ -1,2 +1,2 @@
 # discord-bot
-Violence filtering bot for discord
+Discord bot that filters profanities 
