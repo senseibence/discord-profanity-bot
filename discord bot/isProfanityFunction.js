@@ -35,7 +35,7 @@ function deleteMessage(result, msg) {
 	}
 
 	else if (result) {
-		msg.reply('This message contains a profanity but I am unable to delete it; please enable the "Manage Messages" permission')
+		msg.reply('This message contains a profanity but I am unable to delete it; please enable the "Manage Messages" permission');
 	}
 }
 
