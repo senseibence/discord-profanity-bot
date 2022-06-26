@@ -30,7 +30,13 @@ async function isProfanity(msg, fromFilterjs) {
 }
 
 function deleteMessage(result, msg) {
-	if (result) msg.delete();
+	if (result && msg.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
+		msg.delete();
+	}
+
+	else if (result) {
+		msg.reply('This message contains a profanity but I am unable to delete it; please enable the "Manage Messages" permission')
+	}
 }
 
 module.exports = {
