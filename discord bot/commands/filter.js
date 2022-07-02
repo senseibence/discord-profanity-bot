@@ -12,7 +12,8 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('filter')
 		.setDescription('Filter options')
-		.setDefaultMemberPermissions(1)
+		.setDMPermission(false)
+		.setDefaultMemberPermissions(0)
 		.addStringOption(option =>
 			option.setName('status')
 				.setDescription('Turns filter on or off')
