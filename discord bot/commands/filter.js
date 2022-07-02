@@ -13,7 +13,7 @@ module.exports = {
 		.setName('filter')
 		.setDescription('Filter options')
 		.setDMPermission(false)
-		.setDefaultMemberPermissions(0)
+		.setDefaultMemberPermissions(0) //for testing, this is set to 1
 		.addStringOption(option =>
 			option.setName('status')
 				.setDescription('Turns filter on or off')
