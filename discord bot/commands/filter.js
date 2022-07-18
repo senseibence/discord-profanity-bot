@@ -41,10 +41,6 @@ module.exports = {
 			guildIds.push(currentGuildId);
 		}	
 
-		if (!guildIds.includes(currentGuildId)) {
-			guildIds.push(currentGuildId);
-		}	
-
 		const index = guildIds.indexOf(currentGuildId);
 		const status = interaction.options.getString('status');
 		const mode = interaction.options.getString('mode');
