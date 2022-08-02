@@ -1,2 +1,1 @@
-# discord-bot
-Discord bot that filters profanity 
+# Discord bot that filters profanity 
