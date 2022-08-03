@@ -1,3 +1,5 @@
+// this file checks edited messages, a genuinely sneaky way to get a profanity through. But I caught it!
+
 const fromFilterjs = require('../commands/filter.js');
 const fromProfanityjs = require('../isProfanityFunction.js');
 
