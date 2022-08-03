@@ -5,6 +5,8 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require("./strings.json");
 
+// this file deploys global discord commands. For testing, the guildId above would be needed to deploy guild only commands
+
 const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
@@ -22,7 +24,9 @@ const rest = new REST({ version: '9' }).setToken(token);
 		console.log('Started refreshing application (/) commands.');
 
 		await rest.put(
-			Routes.applicationCommands(clientId),
+			
+			//here is where guildId would be added for testing
+			Routes.applicationCommands(clientId), 
 			{ body: commands },
 		);
 
