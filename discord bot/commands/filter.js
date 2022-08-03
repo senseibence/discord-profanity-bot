@@ -36,7 +36,7 @@ module.exports = {
 
 				)),
 	
-	// execute function which was called in interaction.execute
+	// execute function which was called in "interactionCreate", code: "command.execute(interaction)"
 	async execute(interaction) {
 		const currentGuildId = interaction.guild.id;
 
