@@ -1,3 +1,5 @@
+// command that replies with your discord username
+
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
