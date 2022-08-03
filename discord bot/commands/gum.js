@@ -1,3 +1,5 @@
+//silly, filler command
+
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
