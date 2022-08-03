@@ -16,6 +16,8 @@ const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
+// the following two loops cycle through my folders and turn the client on (becomes ready to read messages)
+
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
