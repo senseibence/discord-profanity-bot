@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
+//arrays to split variables (bot states) among servers
 const guildIds = [];
 const guildOnStatus = [false];
 const guildFilterLevel = ["strict"];
@@ -9,6 +10,7 @@ module.exports = {
 	getGuildOnStatus,
 	getGuildFilterLevel,
 	
+	//creating the slash commands
 	data: new SlashCommandBuilder()
 		.setName('filter')
 		.setDescription('Filter options')
@@ -33,7 +35,8 @@ module.exports = {
 					{ name: 'lenient', value: 'lenient' },
 
 				)),
-		
+	
+	// execute function which was called in interaction.execute
 	async execute(interaction) {
 		const currentGuildId = interaction.guild.id;
 
