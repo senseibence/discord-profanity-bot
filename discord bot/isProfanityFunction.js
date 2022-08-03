@@ -4,7 +4,7 @@ const { Permissions } = require('discord.js');
 const XMLHttpRequest = require('xhr2');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-// this file contains a function which calls on [Neutrino API](https://www.neutrinoapi.com/api/bad-word-filter/), a very powerful tool that correctly identifies profanities in a given string
+// this file contains a function which calls on Neutrino API, a very powerful tool that correctly identifies profanities in a given string
 async function isProfanity(msg, filterLevel) { 
 	let json; let obj; let res;
 	
@@ -21,8 +21,8 @@ async function isProfanity(msg, filterLevel) {
 			deleteMessage(res, msg);
 		}
 	});
-	
-	//sending in a discord message
+	 
+	// sending in a discord message
 	var apiParams = "content="+msg.content+"&user-id=senseibence&api-key="+apiKey+"&catalog="+filterLevel;
 
 	xhr.open("POST", "https://neutrinoapi.net/bad-word-filter", true);
