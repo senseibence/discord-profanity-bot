@@ -1,3 +1,5 @@
+// this file checks if a slash command was used and correctly calls .execute on it
+
 module.exports = {
 	name: 'interactionCreate',
 	execute(interaction) {
