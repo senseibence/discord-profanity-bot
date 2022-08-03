@@ -15,7 +15,10 @@ module.exports = {
 		.setName('filter')
 		.setDescription('Filter options')
 		.setDMPermission(false)
-		.setDefaultMemberPermissions(0) //for testing, this is set to 1
+	
+		//for testing, this is set to 1. 0 gives only admins permission to interact with slash commands
+		.setDefaultMemberPermissions(0) 
+	
 		.addStringOption(option =>
 			option.setName('status')
 				.setDescription('Turns filter on or off')
@@ -39,7 +42,8 @@ module.exports = {
 	// execute function which was called in "interactionCreate", code: "command.execute(interaction)"
 	async execute(interaction) {
 		const currentGuildId = interaction.guild.id;
-
+		
+		//adds new server (guild) Id if we don't have it yet
 		if (!guildIds.includes(currentGuildId)) {
 			guildIds.push(currentGuildId);
 		}	
@@ -51,7 +55,8 @@ module.exports = {
 		if (status === null && mode === null) {
 			await interaction.reply("I am a profanity filter created by Bence Lukacsy");
 		}
-
+		
+		// the following if conditions reply to the user and correctly set our bot state variables, on/off and strict/lenient
 		else if (status === null) {
 
 			if (mode === "strict") {
@@ -108,6 +113,8 @@ module.exports = {
 		
 	},
 };
+
+// getter methods so that we can export arrays with bot variables
 
 function getGuildIds() {
 	return guildIds;
