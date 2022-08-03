@@ -1,3 +1,5 @@
+// this file turns the bot on and prints a ready message
+
 module.exports = {
 	name: 'ready',
 	once: true,
