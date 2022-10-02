@@ -8,10 +8,10 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('library')
 		.setDescription('Add or remove words from profanity library')
-        .setDMPermission(false)
-        .setDefaultMemberPermissions(1) //0 is admin
-        .addStringOption(option => option.setName('add').setDescription('Adds word to library'))
-        .addStringOption(option => option.setName('remove').setDescription('Removes word from library')),
+		.setDMPermission(false)
+		.setDefaultMemberPermissions(1) //0 is admin
+		.addStringOption(option => option.setName('add').setDescription('Adds word to library'))
+		.addStringOption(option => option.setName('remove').setDescription('Removes word from library')),
         
 	async execute(interaction) {
         const currentGuildId = interaction.guild.id;
@@ -44,6 +44,6 @@ module.exports = {
             }
         }
 
-        await interaction.reply('Action Done');
+        await interaction.reply('Action Complete');
 	},
 };
