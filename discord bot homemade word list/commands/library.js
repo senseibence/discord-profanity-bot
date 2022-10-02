@@ -30,20 +30,39 @@ module.exports = {
         const removedWord = interaction.options.getString('remove');
         const newServerLibrary = fromFilterjs.getAllLibraries()[index];
 
-        if (addedWord !== null) {
+        if (addedWord !== null && removedWord !== null) {
+
             const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
             if (indexOfAddedWord === -1) {
                 newServerLibrary.push(addedWord);
             }
-        }
 
-        if (removedWord !== null) {
             const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
             if (indexOfRemovedWord > -1) {
                 newServerLibrary.splice(indexOfRemovedWord, 1);
             }
+
+            await interaction.reply(addedWord+" was added to list, "+removedWord+" was removed from list");
         }
 
-        await interaction.reply('Action Complete');
-	},
+        else if (addedWord !== null) {
+            const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
+            if (indexOfAddedWord === -1) {
+                newServerLibrary.push(addedWord);
+                await interaction.reply(addedWord+" was added to list");
+            }
+        }
+
+        else if (removedWord !== null) {
+            const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
+            if (indexOfRemovedWord > -1) {
+                newServerLibrary.splice(indexOfRemovedWord, 1);
+                await interaction.reply(removedWord+" was removed from list");
+            }
+        }
+
+        else {
+            await interaction.reply("Nothing changed, try giving an input!");
+        }
+    },
 };
