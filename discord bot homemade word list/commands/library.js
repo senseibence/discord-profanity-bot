@@ -14,55 +14,55 @@ module.exports = {
 		.addStringOption(option => option.setName('remove').setDescription('Removes word from library')),
         
 	async execute(interaction) {
-        const currentGuildId = interaction.guild.id;
+		const currentGuildId = interaction.guild.id;
 
-		if (!fromFilterjs.getGuildIds().includes(currentGuildId)) {
-			fromFilterjs.getGuildIds().push(currentGuildId);
+			if (!fromFilterjs.getGuildIds().includes(currentGuildId)) {
+				fromFilterjs.getGuildIds().push(currentGuildId);
+			}
+
+		const index = fromFilterjs.getGuildIds().indexOf(currentGuildId);
+
+		if (fromFilterjs.getAllLibraries()[index] === undefined) {
+				fromFilterjs.getAllLibraries()[index] = originalLibrary.slice(0);
+			}
+
+		const addedWord = interaction.options.getString('add');
+		const removedWord = interaction.options.getString('remove');
+		const newServerLibrary = fromFilterjs.getAllLibraries()[index];
+
+		if (addedWord !== null && removedWord !== null) {
+
+		    const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
+		    if (indexOfAddedWord === -1) {
+			newServerLibrary.push(addedWord);
+		    }
+
+		    const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
+		    if (indexOfRemovedWord > -1) {
+			newServerLibrary.splice(indexOfRemovedWord, 1);
+		    }
+
+		    await interaction.reply(addedWord+" was added to list, "+removedWord+" was removed from list");
 		}
 
-        const index = fromFilterjs.getGuildIds().indexOf(currentGuildId);
-
-        if (fromFilterjs.getAllLibraries()[index] === undefined) {
-			fromFilterjs.getAllLibraries()[index] = originalLibrary.slice(0);
+		else if (addedWord !== null) {
+		    const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
+		    if (indexOfAddedWord === -1) {
+			newServerLibrary.push(addedWord);
+			await interaction.reply(addedWord+" was added to list");
+		    }
 		}
 
-        const addedWord = interaction.options.getString('add');
-        const removedWord = interaction.options.getString('remove');
-        const newServerLibrary = fromFilterjs.getAllLibraries()[index];
+		else if (removedWord !== null) {
+		    const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
+		    if (indexOfRemovedWord > -1) {
+			newServerLibrary.splice(indexOfRemovedWord, 1);
+			await interaction.reply(removedWord+" was removed from list");
+		    }
+		}
 
-        if (addedWord !== null && removedWord !== null) {
-
-            const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
-            if (indexOfAddedWord === -1) {
-                newServerLibrary.push(addedWord);
-            }
-
-            const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
-            if (indexOfRemovedWord > -1) {
-                newServerLibrary.splice(indexOfRemovedWord, 1);
-            }
-
-            await interaction.reply(addedWord+" was added to list, "+removedWord+" was removed from list");
-        }
-
-        else if (addedWord !== null) {
-            const indexOfAddedWord = newServerLibrary.indexOf(addedWord);
-            if (indexOfAddedWord === -1) {
-                newServerLibrary.push(addedWord);
-                await interaction.reply(addedWord+" was added to list");
-            }
-        }
-
-        else if (removedWord !== null) {
-            const indexOfRemovedWord = newServerLibrary.indexOf(removedWord);
-            if (indexOfRemovedWord > -1) {
-                newServerLibrary.splice(indexOfRemovedWord, 1);
-                await interaction.reply(removedWord+" was removed from list");
-            }
-        }
-
-        else {
-            await interaction.reply("Nothing changed, try giving an input!");
-        }
-    },
+		else {
+		    await interaction.reply("Nothing changed, try giving an input!");
+		}
+    	},
 };
