@@ -16,15 +16,15 @@ module.exports = {
 	async execute(interaction) {
 		const currentGuildId = interaction.guild.id;
 
-			if (!fromFilterjs.getGuildIds().includes(currentGuildId)) {
-				fromFilterjs.getGuildIds().push(currentGuildId);
-			}
+		if (!fromFilterjs.getGuildIds().includes(currentGuildId)) {
+			fromFilterjs.getGuildIds().push(currentGuildId);
+		}
 
 		const index = fromFilterjs.getGuildIds().indexOf(currentGuildId);
 
 		if (fromFilterjs.getAllLibraries()[index] === undefined) {
-				fromFilterjs.getAllLibraries()[index] = originalLibrary.slice(0);
-			}
+			fromFilterjs.getAllLibraries()[index] = originalLibrary.slice(0);
+		}
 
 		const addedWord = interaction.options.getString('add');
 		const removedWord = interaction.options.getString('remove');
