@@ -7,18 +7,10 @@ async function isProfanity(msg, serverLibrary) {
 	let res = false; let input = msg.content;
 
 	const removeRepeats = (str) => [...new Set(str)].join('');
-
-	for (let i = 0; i < serverLibrary.length; i++) {
-		input = msg.content;
-		
-		if (input.includes(serverLibrary[i])) {
-			res = true;
-			break;
-		}
-
-		else {
-			input = input.replace(/[^a-zA-Z]/g, '');
-			input = input.toLowerCase();
+	
+	if (msg.author.id !== '986412902250594324') {
+		for (let i = 0; i < serverLibrary.length; i++) {
+			input = msg.content;
 
 			if (input.includes(serverLibrary[i])) {
 				res = true;
@@ -26,14 +18,24 @@ async function isProfanity(msg, serverLibrary) {
 			}
 
 			else {
-				if (removeRepeats(input).includes(serverLibrary[i])) {
+				input = input.replace(/[^a-zA-Z]/g, '');
+				input = input.toLowerCase();
+
+				if (input.includes(serverLibrary[i])) {
 					res = true;
 					break;
+				}
+
+				else {
+					if (removeRepeats(input).includes(serverLibrary[i])) {
+						res = true;
+						break;
+					}
 				}
 			}
 		}
 	}
-
+	
 	if (res) {
 		deleteMessage(msg);
 	}
