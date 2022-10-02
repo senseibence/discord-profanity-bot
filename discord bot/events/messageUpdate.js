@@ -7,7 +7,7 @@ module.exports = {
 	name: 'messageUpdate',
 	execute(oldMsg, newMsg) {
         
-        const currentGuildId = msg.guild.id;
+        const currentGuildId = newMsg.guild.id;
         const guildIdsArray = fromFilterjs.getGuildIds();
         const guildStatusArray = fromFilterjs.getGuildOnStatus();
         const guildLevelArray = fromFilterjs.getGuildFilterLevel();
