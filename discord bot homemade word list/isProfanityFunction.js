@@ -3,40 +3,88 @@ const { Client, Collection, Intents } = require('discord.js');
 const { Permissions } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-async function isProfanity(msg, serverLibrary) { 
-	let res = false; let input = msg.content;
+async function isProfanity(msg, object) { 
+	let bool = false; 
+	let input = msg.content;
+	const blacklist = object.blacklist;
+	const whitelist = object.whitelist;
 
-	const removeRepeats = (str) => [...new Set(str)].join('');
-	
-	if (msg.author.id !== '986412902250594324') {
-		for (let i = 0; i < serverLibrary.length; i++) {
-			input = msg.content;
+	if (msg.author.id !== '1008619741897834546') {
 
-			if (input.includes(serverLibrary[i])) {
-				res = true;
-				break;
+		if (blacklist.indexOf(input) > -1) {
+			bool = true;
+		}
+
+		/*const arrayOfInput = input.split(" ");
+		for (let i = 0; i < blacklist.length; i++) {
+			const index = arrayOfInput.indexOf(blacklist[i]);
+			if (index > -1) {
+				arrayOfInput.splice(index,1);
+			}
+		}*/
+
+		else {
+
+			// removes special characters and numbers, but not spaces
+			input = input.replace(/[^a-zA-Z ]/g, '');
+
+			// string to array
+			const arrayOfInput = input.split(" ");
+			
+			// remove element if it directly matches to whitelist element
+			for (let i = 0; i < whitelist.length; i++) {
+				const index = arrayOfInput.indexOf(whitelist[i]);
+				if (index > -1) {
+					arrayOfInput.splice(index,1);
+				}
 			}
 
-			else {
-				input = input.replace(/[^a-zA-Z]/g, '');
-				input = input.toLowerCase();
+			// check if element directly matches to blacklist element
 
-				if (input.includes(serverLibrary[i])) {
-					res = true;
-					break;
-				}
-
-				else {
-					if (removeRepeats(input).includes(serverLibrary[i])) {
-						res = true;
-						break;
+			loop1:
+			for (let i = 0; i < arrayOfInput.length; i++) {
+				for (let j = 0; j < blacklist.length; j++) {
+					if (arrayOfInput[i].toLowerCase().includes(blacklist[j]) || arrayOfInput[i].includes(blacklist[j])) {
+						bool = true;
+						break loop1;
 					}
 				}
 			}
+
+			if (!bool) {
+
+				// turn array back to string
+				let stringOfInput = arrayOfInput.toString();
+				stringOfInput = stringOfInput.replace(/[^a-zA-Z]/g, '');
+				const removeRepeats = (str) => [...new Set(str)].join('');
+
+				// final checks
+				for (let i = 0; i < blacklist.length; i++) {
+
+					if (stringOfInput.toLowerCase().includes(blacklist[i])) {
+						bool = true;
+						break;
+					}
+
+					else if (removeRepeats(stringOfInput).includes(blacklist[i])) {
+						bool = true;
+						break;
+					}
+
+					else if (stringOfInput.includes(blacklist[i])) {
+						bool = true;
+						break;
+					}
+					
+				}
+
+			}
+			
 		}
+		
 	}
-	
-	if (res) {
+
+	if (bool) {
 		deleteMessage(msg);
 	}
 
