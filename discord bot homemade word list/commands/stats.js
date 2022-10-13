@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fromIsProfanityjs = require('../isProfanityFunction.js');
 const fromMessageCreatejs = require('../events/messageCreate');
+let client;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -25,6 +26,15 @@ module.exports = {
 		let totalMessages = fromMessageCreatejs.getTotalMessages();
 		let totalDeleted = fromIsProfanityjs.getTotalDeleted();
 		
-        return interaction.reply("Messages Interpreted vs. Profanities Deleted: "+totalMessages+" | "+totalDeleted+'\n'+"Uptime: "+uptime+'\n'+"Server Count: "+client.guilds.cache.size);
+		// everything from the client gets updated correctly except member count. So the below correctly gives uptime, server count, and server name, but not member count. I have no fix
+		return interaction.reply({ 
+			embeds: [
+			  new MessageEmbed()
+			  .setDescription("Messages Interpreted: "+totalMessages+'\n'+"Profanities Deleted: "+totalDeleted+'\n'+"Uptime: "+uptime+'\n'+"Server Count: "+client.guilds.cache.size+'\n'+"Total Member Count: "+client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)+'\n\n'+
+				client.guilds.cache
+				  .map(g => `Guild Name: ${g.name}\n  Total Members: ${g.memberCount}\n Guild ID: ${g.id}`).join('\n\n')
+			  )
+			] 
+		})
 	},
 };
