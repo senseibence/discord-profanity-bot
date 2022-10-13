@@ -7,8 +7,8 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('stats')
 		.setDescription('Bot stats')
-        .setDMPermission(true)
-        .setDefaultMemberPermissions(0), 
+		.setDMPermission(true)
+		.setDefaultMemberPermissions(0), 
         
 	async execute(interaction) {
 		client = interaction.client;
