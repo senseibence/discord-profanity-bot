@@ -103,8 +103,6 @@ async function isProfanity(msg, guildMap, currentGuildId) {
 		}
 		
 	}
-        
-	
 
 	if (bool) {
 		deleteMessage(msg);
@@ -138,15 +136,15 @@ function removeLeet(input) {
     return input;
 }
 
-// algorithm over! below is to actually delete the message
+// algorithm over! below is to actually delete the message, given that we have permissions
 function deleteMessage(msg) {
-	if (msg.guild.me.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
-		msg.delete();
+	if (msg.guild.me.permissionsIn(msg.channel).has(Permissions.FLAGS.MANAGE_MESSAGES)) {
+		msg.delete().catch(error => {});
 		totalDeleted++;
 	}
 
-	else {
-		msg.reply('This message contains a profanity but I am unable to delete it; please enable the "Manage Messages" permission');
+	else if (msg.guild.me.permissionsIn(msg.channel).has(Permissions.FLAGS.SEND_MESSAGES)) {
+		msg.reply('This message contains a profanity but I am unable to delete it; please enable the "Manage Messages" permission').catch(error => {});
 	}
 }
 
