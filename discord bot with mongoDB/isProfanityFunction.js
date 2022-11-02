@@ -1,7 +1,7 @@
 const { Permissions } = require('discord.js');
 let totalDeleted = 0;
 
-async function isProfanity(msg, currentGuildId, blacklistArray, whitelistArray) { 
+async function isProfanity(msg, blacklistArray, whitelistArray) { 
 	let bool = false; 
 	let input = msg.content;
 	const blacklist = new Set(blacklistArray);
