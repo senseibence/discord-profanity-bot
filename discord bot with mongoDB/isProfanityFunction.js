@@ -1,12 +1,12 @@
 const { Permissions } = require('discord.js');
 let totalDeleted = 0;
 
-async function isProfanity(msg, guildMap, currentGuildId) { 
+async function isProfanity(msg, currentGuildId, blacklistArray, whitelistArray) { 
 	let bool = false; 
 	let input = msg.content;
-	const blacklist = guildMap.get(currentGuildId).blacklist;
-	const whitelist = guildMap.get(currentGuildId).whitelist;
-    const removeRepeats = (str) => [...new Set(str)].join('');
+	const blacklist = new Set(blacklistArray);
+	const whitelist = new Set(whitelistArray);
+   	const removeRepeats = (str) => [...new Set(str)].join('');
 
 	const arrayOfInput = input.split(" ");
 
@@ -70,11 +70,10 @@ async function isProfanity(msg, guildMap, currentGuildId) {
 		// turn array back to string
 		let stringOfInput = arrayOfInput.toString();
 		stringOfInput = stringOfInput.replace(/,/g, '');
-		const arrayOfBlacklist = Array.from(blacklist);
 
 		// final checks
-		for (let i = 0; i < arrayOfBlacklist.length; i++) {
-			let currentWord = arrayOfBlacklist[i];
+		for (let i = 0; i < blacklistArray.length; i++) {
+			let currentWord = blacklistArray[i];
 
 			if (stringOfInput.includes(currentWord)) {
 				bool = true; 
