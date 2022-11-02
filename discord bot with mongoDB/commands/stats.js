@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fromIsProfanityjs = require('../isProfanityFunction.js');
 const fromMessageCreatejs = require('../events/messageCreate');
-const fromReadyjs = require('../events/ready.js');
 const { MessageEmbed } = require('discord.js');
-let client;
+let client; let embedMessage;
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -14,7 +13,15 @@ module.exports = {
         
 	async execute(interaction) {
 		client = interaction.client;
-		const guildMap = fromReadyjs.getGuildMap();
+		
+		client.guilds.cache.forEach(async guild => {
+				  
+			// read from mongoDB
+			const fromDatabase = (await Guild.find({ guildId: guild.id }))[0];
+			const guildOnStatus = fromDatabase.guildOnStatus;
+
+			embedMessage += `Guild Name: ${guild.name}\n  Total Members: ${guild.memberCount}\n Guild ID: ${guild.id}\n Filter Status: ${guildOnStatus}+\n\n`
+		})
 		
 		let totalSeconds = (client.uptime / 1000);
 		let days = Math.floor(totalSeconds / 86400);
@@ -33,8 +40,7 @@ module.exports = {
 			embeds: [
 			  new MessageEmbed()
 			  .setDescription("Interpreted: "+totalMessages+'\n'+"Profanities Deleted: "+totalDeleted+'\n'+"Uptime: "+uptime+'\n'+"Server Count: "+client.guilds.cache.size+'\n'+"Total Member Count: "+client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)+'\n\n'+
-				client.guilds.cache
-				  .map(guild => `Guild Name: ${guild.name}\n  Total Members: ${guild.memberCount}\n Guild ID: ${guild.id}\n Filter Status: ${guildMap.get(guild.id).onStatus}`).join('\n\n') 
+					  embedMessage) 
 			  )
 			] 
 		})
