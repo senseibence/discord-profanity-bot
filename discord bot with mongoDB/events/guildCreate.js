@@ -7,6 +7,7 @@ module.exports = {
 	name: 'guildCreate',
 	async execute(guild) {
 		let guildProfile = await new Guild({
+		    guildId: guild.name,
 		    guildId: guild.id,
 		    guildOnStatus: false,
 		    guildBlacklist: blacklist.slice(0),
