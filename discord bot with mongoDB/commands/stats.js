@@ -40,7 +40,7 @@ module.exports = {
 			embeds: [
 			  new MessageEmbed()
 			  .setDescription("Interpreted: "+totalMessages+'\n'+"Profanities Deleted: "+totalDeleted+'\n'+"Uptime: "+uptime+'\n'+"Server Count: "+client.guilds.cache.size+'\n'+"Total Member Count: "+client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)+'\n\n'+
-					  embedMessage) 
+					  embedMessage 
 			  )
 			] 
 		})
