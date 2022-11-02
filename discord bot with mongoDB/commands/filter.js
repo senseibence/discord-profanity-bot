@@ -1,13 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MongoClient } = require('mongodb');
 const { mongoURI } = require('../strings.json')
-const fromReadyjs = require('../events/ready.js')
 const mongoClient = new MongoClient(mongoURI)
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('filter')
-		.setDescription('Filter options')
+		.setDescription('Turns filter on or off')
 		.setDMPermission(false)
 		.setDefaultMemberPermissions(1) // 0 is admin
 		.addStringOption(option =>
@@ -23,13 +22,11 @@ module.exports = {
 	async execute(interaction) {
 		const currentGuildId = interaction.guild.id;
 		const status = interaction.options.getString('status');
-		const guildMap = fromReadyjs.getGuildMap();
 		const database = mongoClient.db("test");
 		const collection = database.collection("guildVariables");
 
 		if (status === 'on') {
-			guildMap.get(currentGuildId).onStatus = true;
-
+			
 			// update mongoDB
 			await collection.updateOne(
 				{guildId: currentGuildId},
@@ -39,7 +36,6 @@ module.exports = {
 		}
 
 		else if (status === 'off') {
-			guildMap.get(currentGuildId).onStatus = false;
 
 			// update mongoDB
 			await collection.updateOne(
