@@ -1,5 +1,5 @@
+const Guild = require('../schema.js')
 const fromProfanityjs = require('../isProfanityFunction.js');
-const fromReadyjs = require('../events/ready.js');
 let totalMessages = 0;
 
 module.exports = {
@@ -8,31 +8,20 @@ module.exports = {
 
 	name: 'messageCreate',
 	execute(msg) {
-        
-        const currentGuildId = msg.guild.id;
-        const guildMap = fromReadyjs.getGuildMap();
-        let isOn;
+		const currentGuildId = msg.guild.id;
 
-        if (guildMap.has(currentGuildId)) {
-            isOn = guildMap.get(currentGuildId).onStatus;
-        }
-        
-        if (isOn) {
+		// read from mongoDB
+		const fromDatabase = (await Guild.find({ guildId: currentGuildId }))[0];
+		const guildOnStatus = fromDatabase.guildOnStatus;
+		const guildBlacklist = fromDatabase.guildBlacklist;
+		const guildWhitelist = fromDatabase.guildWhitelist;
 
-            if (msg.author.id !== '986412902250594324') {
-                totalMessages++;
-            
-                if (msg.guild.id == '753072198801031239') { // Neon Tokyo Town
-                    if (msg.channel.id == '1008577449992396872') {
-                        fromProfanityjs.isProfanity(msg, guildMap, currentGuildId);
-                    }
-                }
-
-                else {
-                    fromProfanityjs.isProfanity(msg, guildMap, currentGuildId);
-                }
-            }
-        }
+		if (guildOnStatus) {
+		    if (msg.author.id !== '986412902250594324') {
+			totalMessages++;
+			fromProfanityjs.isProfanity(msg, currentGuildId, guildBlacklist, guildWhitelist);
+		    }
+		}
 	},
 };
 
