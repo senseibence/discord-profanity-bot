@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MongoClient } = require('mongodb');
 const { mongoURI } = require('../strings.json')
-const fromReadyjs = require('../events/ready.js')
 const mongoClient = new MongoClient(mongoURI)
 
 module.exports = {
@@ -15,12 +14,17 @@ module.exports = {
         
 	async execute(interaction) {
         const currentGuildId = interaction.guild.id;
-        const guildMap = fromReadyjs.getGuildMap();
+		
+	// read from mongoDB
+	const fromDatabase = (await Guild.find({ guildId: currentGuildId }))[0];
+	const guildBlacklist = fromDatabase.guildBlacklist;
+	const newBlacklist = new Set(guildBlacklist);
+	
         const addedWord = interaction.options.getString('add');
         const removedWord = interaction.options.getString('remove');
-        const newBlacklist = guildMap.get(currentGuildId).blacklist;
+        
         const database = mongoClient.db("test");
-		const collection = database.collection("guildVariables");
+	const collection = database.collection("guildVariables");
 
         if (addedWord !== null && removedWord !== null) {
             newBlacklist.add(addedWord);
