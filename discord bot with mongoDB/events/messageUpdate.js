@@ -5,7 +5,6 @@ const fromMessageCreatejs = require('./messageCreate.js');
 module.exports = {
 	name: 'messageUpdate',
 	execute(oldMsg, newMsg) {
-        
         	const currentGuildId = newMsg.guild.id;
 
 		// read from mongoDB
