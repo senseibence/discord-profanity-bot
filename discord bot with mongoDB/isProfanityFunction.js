@@ -8,16 +8,18 @@ async function isProfanity(msg, blacklistArray, whitelistArray) {
 	const whitelist = new Set(whitelistArray);
    	const removeRepeats = (str) => [...new Set(str)].join('');
 
-	const arrayOfInput = input.split(" ");
-
-	// remove element if it directly matches to whitelist element
-	for (let i = 0; i < arrayOfInput.length; i++) {
-		if (whitelist.has(arrayOfInput[i])) {
-			arrayOfInput.splice(i,1);
+	// remove element if it matches to whitelist element
+	const iterator = whitelist.values();
+	for (let i = 0; i < whitelist.size; i++) {
+		const whitelist_word = iterator.next().value;
+		if (input.includes(whitelist_word)) {
+			input = input.replaceAll(whitelist_word,"");
 		}
 	}
 
-	// check if element directly matches to blacklist element
+	const arrayOfInput = input.split(" ");
+
+	// check if element matches to blacklist element
 	for (let i = 0; i < arrayOfInput.length; i++) {
 		let currentWord = arrayOfInput[i];
 
