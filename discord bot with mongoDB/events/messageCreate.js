@@ -18,8 +18,10 @@ module.exports = {
 
 		if (guildOnStatus) {
 		    if (msg.author.id !== '986412902250594324') {
-                totalMessages++;
-                fromProfanityjs.isProfanity(msg, guildBlacklist, guildWhitelist);
+			    if (!msg.content.includes('https://')) {
+				    totalMessages++;
+                		    fromProfanityjs.isProfanity(msg, guildMap, currentGuildId);
+			}
 		    }
 		}
 	},
