@@ -10,4 +10,4 @@
 [Mongo Database](https://www.mongodb.com/)
 
 # Stats
-![image](https://user-images.githubusercontent.com/72169848/202920807-4e47a46d-6065-4245-858c-92b6b96eb586.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1044766410330615839/final_bot_stats.png)
