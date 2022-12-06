@@ -9,5 +9,6 @@
 
 [Mongo Database](https://www.mongodb.com/)
 
-# Stats
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1049516508004503572/image.png)
+
 ![image](https://cdn.discordapp.com/attachments/953870034227302470/1044766410330615839/final_bot_stats.png)
