@@ -11,9 +11,9 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('suggestion')
 		.setDescription('Send suggestion')
-        .setDMPermission(false)
-        .setDefaultMemberPermissions(1)
-        .addStringOption(option => option.setName('suggestion').setDescription('Send suggestion')),
+		.setDMPermission(false)
+		.setDefaultMemberPermissions(1)
+		.addStringOption(option => option.setName('suggestion').setDescription('Send suggestion')),
         
 	async execute(interaction) {
         await interaction.deferReply({ ephemeral: true }); // emailing takes a moment
