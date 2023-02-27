@@ -18,7 +18,7 @@ module.exports = {
 
 		try {
 			const transport = nodemailer.createTransport({
-			    service: 'hotmail', // gmail no longer works without oauth2
+			    service: 'hotmail', // gmail alternative w/ app password
 			    auth: {
 				user: 'profanityfilter1@hotmail.com',
 				pass: // your hotmail password
