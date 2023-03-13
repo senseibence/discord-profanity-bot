@@ -35,7 +35,19 @@ async function isProfanity(msg, guildMap, currentGuildId) {
 		const leetRemovedReplaced = removeLeet(currentWord).replace(/[^a-zA-Z]/g, '');
 		const wordReplaced = currentWord.replace(/[^a-zA-Z]/g, '');
 
-		// deleted 
+		if 
+
+		(
+			(currentWord === "ass" || currentWord === "tit" || currentWord === "hell" || currentWord === "cum" || currentWord === "nig" || currentWord === "spic" || currentWord === "fuc") || 
+			(leetRemoved === "ass" || leetRemoved === "tit" || leetRemoved === "hell" || leetRemoved === "cum" || leetRemoved === "nig" || leetRemoved === "spic" || leetRemoved === "fuc") ||
+			(wordReplaced === "ass" || wordReplaced === "tit" || wordReplaced === "hell" || wordReplaced === "cum" || wordReplaced === "nig" || wordReplaced === "spic" || wordReplaced === "fuc") ||
+			(leetRemovedReplaced === "ass" || leetRemovedReplaced === "tit" || leetRemovedReplaced === "hell" || leetRemovedReplaced === "cum" || leetRemovedReplaced === "nig" || leetRemovedReplaced === "spic" || leetRemovedReplaced === "fuc")
+		) 
+		
+		{
+			bool = true;
+			break;
+		}
 
 		if 
 		
