@@ -11,7 +11,7 @@
 
 [Mongo Database](https://www.mongodb.com/)
 
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1085095379248349195/image.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1085357669658923008/botstats.jpg)
 
 ![image](https://cdn.discordapp.com/attachments/953870034227302470/1049557145068249129/image.png)
 
