@@ -11,4 +11,4 @@
 
 [Mongo Database](https://www.mongodb.com/)
 
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1088317297149624361/mostserversever.jpg)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1089551219929927881/image.png)
