@@ -1,5 +1,5 @@
 # Discord Bot That Filters Profanity 
-[Bot Demo](https://youtu.be/3u8xdN3v22I) (old video)
+[Bot Demo](https://youtu.be/3u8xdN3v22I) (outdated)
 
 [Listing Site #1 (discord.bots.gg)](https://discord.bots.gg/bots/986412902250594324)
 
