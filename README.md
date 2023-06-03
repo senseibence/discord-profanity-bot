@@ -14,7 +14,7 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 # Changes
 * Add "molasses" to the word whitelist
 * Smoother handling of character limit in stats command embedded message
-* Make regex algorithm less aggressive (less false positives), thus relying less on the word whitelist
+* Make regex algorithm less aggressive
 
 # Verification
 Once the bot is in 75 servers, I will apply for [discord bot verification](https://support.discord.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting). This would be a big milestone, and each week the bot comes closer to that goal.
