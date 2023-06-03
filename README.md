@@ -13,7 +13,6 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 
 # Changes
 * Add "molasses" to the word whitelist
-* Add a node_modules to the repository
 * Smoother handling of character limit in stats command embedded message
 * Make regex algorithm less aggressive (less false positives), thus relying less on the word whitelist
 
