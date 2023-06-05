@@ -9,7 +9,7 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 * [discord.watch](https://discord.watch/applications/986412902250594324)
 
 # Statistics
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1114211361371730011/image.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1115366947253649469/image.png)
 
 # Changes
 * Add "molasses" to the word whitelist
