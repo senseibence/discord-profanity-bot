@@ -18,4 +18,4 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 * App password
 
 # Verification
-Bot officially discord-verified as of July 5th, 2023!
+Bot officially Discord-verified as of July 5th, 2023!
