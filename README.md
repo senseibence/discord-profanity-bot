@@ -18,3 +18,5 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 
 # Verification
 Bot officially Discord-verified as of July 5th, 2023!
+
+![image](https://cdn.discordapp.com/attachments/1126605369444147311/1126606511565705236/botprofile.png)
