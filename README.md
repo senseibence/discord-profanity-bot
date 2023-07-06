@@ -11,7 +11,7 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 # Statistics
 ![image](https://cdn.discordapp.com/attachments/991028278473134191/1126356094424457266/botstatistics.png)
 
-# Changes
+# Future Changes
 * Add "molasses" to the word whitelist
 * Smoother handling of character limit in stats command embedded message
 * Make regex algorithm less aggressive
