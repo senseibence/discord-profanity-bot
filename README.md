@@ -20,6 +20,7 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 * Smoother handling of character limit in statistics command
 * Make regex algorithm encounter fewer false positives
 * Improve Privacy Policy and Terms of Service
+* Make an NLP algorithm for profanity detection
   
 # Verification
 Bot officially Discord-verified as of July 5th, 2023!
