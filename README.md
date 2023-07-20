@@ -21,8 +21,8 @@ Changes made to the lists by individual servers are not reflected here.
 ![image](https://cdn.discordapp.com/attachments/991028278473134191/1126356094424457266/botstatistics.png)
 
 # Future Changes
-* Add "molasses" to the word whitelist
-* Smoother handling of character limit in statistics command
+* ~Add "molasses" to the word whitelist~
+* ~Smoother handling of character limit in statistics command~
 * Make regex algorithm encounter fewer false positives
 * Improve Privacy Policy and Terms of Service
 * Make an NLP algorithm for profanity detection
