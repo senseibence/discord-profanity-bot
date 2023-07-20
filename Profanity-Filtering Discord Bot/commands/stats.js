@@ -31,18 +31,14 @@ module.exports = {
 		let totalMessages = fromMessageCreatejs.getTotalMessages();
 		let totalDeleted = fromIsProfanityjs.getTotalDeleted();
 		let totalInteractions = fromInteractionCreate.getTotalInteractions();
-
-		const embed = new MessageEmbed()
-			.setColor('#dfc281')
-			.setTitle('Profanity Filter Statistics')
-			.setDescription("Uptime: "+uptime+'\n'+"Total Members: "+client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)+'\n'+"Total Servers: "+client.guilds.cache.size+'\n'+"Total Interactions: "+totalInteractions+'\n'+"Messages Interpreted: "+totalMessages+'\n'+"Profanities Deleted: "+totalDeleted+'\n\n'+
-			  client.guilds.cache
-				.map(guild => `Guild Name: ${guild.name}\n  Members: ${guild.memberCount}`).join('\n\n') 
-			)
-			.setThumbnail('https://i.postimg.cc/63T3VzKP/discordbotprofilepic.png')
-			.setTimestamp()
 		
 		try {
+			const embed = new MessageEmbed()
+				.setColor('#dfc281')
+				.setTitle('Profanity Filter Statistics')
+				.setDescription("Uptime: "+uptime+'\n'+"Total Members: "+client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)+'\n'+"Total Servers: "+client.guilds.cache.size+'\n'+"Total Interactions: "+totalInteractions+'\n'+"Messages Interpreted: "+totalMessages+'\n'+"Profanities Deleted: "+totalDeleted)
+				.setThumbnail('https://i.postimg.cc/63T3VzKP/discordbotprofilepic.png')
+				.setTimestamp()
 			await interaction.editReply({ embeds: [embed] })
 		} catch (error) {
 			console.error(error);
