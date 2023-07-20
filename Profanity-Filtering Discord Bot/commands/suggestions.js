@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const nodemailer = require('nodemailer');
-const gmail_app_password = require('../strings.json');
+const { gmail_app_password } = require('../strings.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
