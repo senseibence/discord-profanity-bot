@@ -227,7 +227,8 @@ const whitelist = [
     "quantities",
     "wristwatch",
     "saltwater",
-    "klondike"
+    "klondike",
+    "molasses"
 
 ];
 
