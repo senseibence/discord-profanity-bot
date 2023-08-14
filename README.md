@@ -18,7 +18,7 @@ Changes made to the lists by individual servers are not reflected here.
 * [discord.watch](https://discord.watch/applications/986412902250594324)
 
 # Statistics
-![image](https://cdn.discordapp.com/attachments/991028278473134191/1136438757931880548/botstatistics.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1140729345036537896/botstatistics.png)
 
 # Future Changes
 * ~Add "molasses" to the word whitelist~
