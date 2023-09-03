@@ -8,7 +8,7 @@ module.exports = {
 		.setDescription('Send suggestion')
         .setDMPermission(false)
         .setDefaultMemberPermissions(1)
-        .addStringOption(option => option.setName('suggestion').setDescription('Send suggestion')),
+        .addStringOption(option => option.setName('suggestion').setDescription('Send suggestion').setRequired(true)),
         
 	async execute(interaction) {
         
