@@ -10,6 +10,11 @@ Both the default blacklist and whitelist can be found [here](https://github.com/
 
 Changes made to the lists by individual servers are not reflected here.
 
+# Support
+24/7 support through profanityfilter0@gmail.com.
+
+All inputs to the suggestion command route to this email.
+
 # Listing Websites
 * [discord.bots.gg](https://discord.bots.gg/bots/986412902250594324)
 
