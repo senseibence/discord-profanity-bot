@@ -29,6 +29,7 @@ All inputs to the suggestion command route to Profanity Filter's email.
 * Make regex algorithm encounter fewer false positives
 * Improve Privacy Policy and Terms of Service
 * Make an NLP algorithm for profanity detection
+* Make adding channels to whitelist easier (interaction object)
   
 # Verification
 Bot officially Discord-verified as of July 5th, 2023!
