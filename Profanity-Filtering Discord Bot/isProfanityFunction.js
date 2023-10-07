@@ -1,3 +1,7 @@
+// The profanity-detection algorithm in this file is extremely redundant; don't overanalyze 
+//
+//
+
 const { Permissions } = require('discord.js');
 let totalDeleted = 0;
 
