@@ -144,6 +144,85 @@ function removeLeet(input) {
     return input;
 }
 
+function replaceMessageWithAsterisks(msgContent, blacklist2) {
+
+    const blacklist = blacklist2;
+    const userMessage = msgContent;
+    arrayOfMsg = userMessage.split(" ");
+    stringOfInput = arrayOfMsg.toString();
+    stringOfInput = stringOfInput.replace(/,/g, '');
+    stringOfInput = stringOfInput.toLowerCase();
+
+    // let transformed = removeRepeats(removeLeet(stringOfInput).replace(/[^a-zA-Z]/g, '')); // too aggressive and skips over profanities in long messages
+    let transformed = removeLeet(stringOfInput).replace(/[^a-zA-Z]/g, '');
+    for (let i = 0; i < blacklist.length; i++) {
+        const profanity = blacklist[i];
+
+        if (transformed.includes(profanity)) {
+            transformed = transformed.replaceAll(profanity, generateAsterisks(profanity.length));
+        }
+
+    }
+
+    // console.log("transformed: "+transformed);
+
+    let i = 0;
+    let j = 0;
+    let result = "";
+    while (i < userMessage.length) {
+        const userMsgSub = userMessage[i]; 
+        const strippedMsgSub = transformed[j]; 
+
+        // console.log("userMsgSub: "+userMsgSub);
+        // console.log("strippedMsgSub: "+strippedMsgSub);
+
+        const regex = /[^a-zA-Z]/; // non letters
+
+        // the below conditions are new and something I thought of to maintain as much of the original message as possible
+
+        if (regex.test(userMsgSub) && strippedMsgSub === '*') {
+            result += userMsgSub;
+            i++;
+        }
+
+        else if (strippedMsgSub === '*') {
+            result += '\\*'; 
+            i++;
+            j++;
+        }
+
+        else if (userMsgSub !== strippedMsgSub) {
+            if ((removeLeet(userMsgSub) === strippedMsgSub) || (userMsgSub.toLowerCase() === strippedMsgSub)) {
+                j++;
+            }
+            result += userMsgSub;
+            i++;
+        }
+
+        else if (userMsgSub === strippedMsgSub) {
+            result += userMsgSub;
+            i++;
+            j++;
+        }
+
+        else {
+            i++; // incase of some extraneous user message (I don't have an example), ensuring loop completes
+        }
+
+        // console.log("result: "+result);
+        // console.log();
+    }
+
+    return result; 
+
+}
+
+function generateAsterisks(integer) {
+    const asterisksArray = Array(integer).fill('*');
+    const result = (asterisksArray.toString()).replace(/,/g, '');
+    return result;
+}
+
 // algorithm over! below is to actually delete the message
 function deleteMessage(msg, authorID) {
 	let permissions = msg.guild.me.permissionsIn(msg.channel);
