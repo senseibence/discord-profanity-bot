@@ -35,4 +35,4 @@ All inputs to the suggestion command route to Profanity Filter's email.
 # Verification
 Bot officially Discord-verified as of July 5th, 2023!
 
-![image](https://cdn.discordapp.com/attachments/1126605369444147311/1126606511565705236/botprofile.png)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1163619732407205898/botprofile.png?ex=65403c53&is=652dc753&hm=fe4dcca553bd1ebaf5a17eb9c675329a935ba9a7b274a6a6c5a6c4296a9f33ca&)
