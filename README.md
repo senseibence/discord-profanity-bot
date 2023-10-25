@@ -25,6 +25,8 @@ All inputs to the suggestion command route to Profanity Filter's email.
 # Statistics
 ![image](https://cdn.discordapp.com/attachments/991028278473134191/1147741528068997262/botstatistics.png)
 
+(As of September 2, 2023)
+
 # Future Changes
 * Implement message-replace-profanities feature
 * Make adding channels to whitelist easier (interaction object)
