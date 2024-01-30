@@ -23,9 +23,9 @@ All inputs to the suggestion command route to Profanity Filter's email.
 * [discord.watch](https://discord.watch/applications/986412902250594324)
 
 # Statistics
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1195414600536047707/image.png?ex=65b3e79a&is=65a1729a&hm=53958df4edcf9f6a6235a4dfedcf7145cad7098f086d2a8eb459d7d762c58941&)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1201773563082702889/image.png?ex=65cb09d9&is=65b894d9&hm=a23a4af5b6bb4c4d20edad312b4c3f815ec3e813c4777a89a702760d16866b0f&)
 
-(As of January 12, 2024)
+(As of January 30, 2024)
 
 # Future Changes
 * Implement message-replace-profanities feature
