@@ -23,7 +23,7 @@ All inputs to the suggestion command route to Profanity Filter's email.
 * [discord.watch](https://discord.watch/applications/986412902250594324)
 
 # Statistics
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1201773563082702889/image.png?ex=65cb09d9&is=65b894d9&hm=a23a4af5b6bb4c4d20edad312b4c3f815ec3e813c4777a89a702760d16866b0f&)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1201773563082702889/image.png?ex=660268d9&is=65eff3d9&hm=2ac8a5e11436085dea830166eb607a06de590be654b9fc7e9b5e01a90435dbe5&)
 
 (As of January 30, 2024)
 
@@ -37,4 +37,4 @@ All inputs to the suggestion command route to Profanity Filter's email.
 # Verification
 Bot officially Discord-verified as of July 5th, 2023!
 
-![image](https://cdn.discordapp.com/attachments/953870034227302470/1163619732407205898/botprofile.png?ex=65403c53&is=652dc753&hm=fe4dcca553bd1ebaf5a17eb9c675329a935ba9a7b274a6a6c5a6c4296a9f33ca&)
+![image](https://cdn.discordapp.com/attachments/953870034227302470/1163619732407205898/botprofile.png?ex=660208d3&is=65ef93d3&hm=957ba739fff03b6b41f42107f2db0e60cd05f089b42c7eb409bafccfc8a2b605&)
