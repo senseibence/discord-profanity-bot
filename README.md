@@ -1,8 +1,6 @@
 # Discord Bot That Filters Profanity 
 This bot utilizes regex rather than neural-based Natural Language Processing (NLP). 
 
-[Here](https://docs.google.com/document/d/1MNkp8vCZ8zUYGCEMJW-_dn6pTFFOsdPhoWIrudeP1v4/edit?usp=sharing) is a research paper I wrote about the topic (non-professional work).
-
 [Here](https://youtu.be/3u8xdN3v22I) is a bot demo (outdated). 
 
 # Word Lists
