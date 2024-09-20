@@ -23,7 +23,7 @@ All inputs to the suggestion command route to Profanity Filter's email.
 # Statistics
 ![image](discordbotstats.png)
 
-(As of May 11, 2024)
+(As of September 20, 2024)
 
 # Future Changes
 * Implement message-replace-profanities feature
