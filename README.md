@@ -4,7 +4,7 @@ This bot utilizes regex rather than neural-based Natural Language Processing (NL
 [Here](https://youtu.be/3u8xdN3v22I) is a bot demo (outdated). 
 
 # Word Lists
-Both the default blacklist and whitelist can be found [here](https://github.com/senseibence/discord-profanity-bot/blob/main/Profanity-Filtering%20Discord%20Bot/profanityList.js).
+Both the default blacklist and whitelist can be found [here](https://github.com/senseibence/discord-profanity-bot/blob/main/Discord%20Profanity%20Bot%20Source/profanityList.js).
 
 Changes made to the lists by individual servers are not reflected here.
 
