@@ -9,7 +9,7 @@ Both the default blacklist and whitelist can be found [here](https://github.com/
 Changes made to the lists by individual servers are not reflected here.
 
 # Support
-24/7 support through profanityfilter0@gmail.com or https://discord.gg/Xfx2YkWJd5.
+profanityfilter0@gmail.com.
 
 All inputs to the suggestion command route to Profanity Filter's email.
 
